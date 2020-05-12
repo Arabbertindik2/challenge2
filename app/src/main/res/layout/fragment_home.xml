@@ -6,10 +6,18 @@
     android:orientation="vertical"
     tools:context=".Fragment_home">
 
-    <!-- TODO: Update blank fragment layout -->
-<!--    <TextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:text="@string/hello_blank_fragment" />-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:gravity="center_horizontal"
+        android:layout_margin="16dp"
+        android:text="Pokedex"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvpoked"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_margin="16dp"/>
 
 </LinearLayout>
