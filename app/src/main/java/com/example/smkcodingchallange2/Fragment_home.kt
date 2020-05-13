@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.fragment_home.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,14 +36,14 @@ class Fragment_home : Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
-//    companion object {
-//
-//        fun newInstance(param1: String, param2: String) =
-//            Fragment_home().apply {
-//                arguments = Bundle().apply {
-//                    putString(ARG_PARAM1, param1)
-//                    putString(ARG_PARAM2, param2)
-//                }
-//            }
-//    }
+    lateinit var list: ArrayList<pokemon.poke>
+
+    private fun simulasi(){
+        list = ArrayList()
+        list.add(pokemon.poke("poke","200","Laki", "Kelabu"))
+    }
+
+    private fun tampil(){
+        rvpoked.layoutManager=LinearLayoutManager()
+    }
 }
