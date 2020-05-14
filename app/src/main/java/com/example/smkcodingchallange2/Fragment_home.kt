@@ -34,6 +34,7 @@ class Fragment_home : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
     }
 
     lateinit var list: ArrayList<pokemon.poke>
@@ -44,6 +45,14 @@ class Fragment_home : Fragment() {
     }
 
     private fun tampil(){
-        rvpoked.layoutManager=LinearLayoutManager()
+        rvpoked.layoutManager=LinearLayoutManager(activity)
+        rvpoked.adapter=pokeadapter(activity!!, list)
     }
+
+    private fun initView(){
+        simulasi()
+        tampil()
+    }
+
+
 }

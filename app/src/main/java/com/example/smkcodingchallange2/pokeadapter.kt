@@ -12,23 +12,22 @@ import java.util.ArrayList
 class pokeadapter(private val context: Context, private val items: ArrayList<pokemon.poke>) :
     RecyclerView.Adapter<pokeadapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): pokeadapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder (
         LayoutInflater.from(context).inflate(R.layout.pokedex_item, parent, false)
-    }
+    )
 
     override fun getItemCount(): Int {
         return items.size
     }
 
-    ​
     override fun onBindViewHolder(holder: ViewHolder, position: Int)
     { holder.bindItem(items.get(position)) }
 
     class ViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView),
         LayoutContainer {
-        fun bindItem(items: ArrayList<pokemon.poke>){
-            txthp.text=items.nama
-            txtpokemonname.text = items.hp
+        fun bindItem(item: pokemon.poke){
+            txthp.text = item.nama
+            txtpokemonname.text = item.hp
         }
     }
 
