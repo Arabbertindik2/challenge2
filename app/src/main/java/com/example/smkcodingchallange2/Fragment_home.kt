@@ -37,11 +37,11 @@ class Fragment_home : Fragment() {
     private fun getTransaksi() {
 
         val PokemonModel = ServiceRequest.get().doTarget()
-        PokemonModel.enqueue(object : Callback<com.example.smkcodingchallange2.Response>{
-            override fun onFailure(call: Call<com.example.smkcodingchallange2.Response>, t: Throwable) {
+        PokemonModel.enqueue(object : Callback<ResponsePokemon>{
+            override fun onFailure(call: Call<ResponsePokemon>, t: Throwable) {
             }
 
-            override fun onResponse(call: Call<com.example.smkcodingchallange2.Response>, response: Response<com.example.smkcodingchallange2.Response>) {
+            override fun onResponse(call: Call<ResponsePokemon>, response: Response<ResponsePokemon>) {
                 tampilGithubUser(response.body()!!.results!!)
             }
 
@@ -49,7 +49,7 @@ class Fragment_home : Fragment() {
     }
     private fun tampilGithubUser(githubUsers: List<ResultsItem>) {
         rvpoked.layoutManager = LinearLayoutManager(activity)
-        rvpoked.adapter = pokeadapter(activity, githubUsers) {
+        rvpoked.adapter = pokeadapter(activity!!, githubUsers) {
         }
     }
 }

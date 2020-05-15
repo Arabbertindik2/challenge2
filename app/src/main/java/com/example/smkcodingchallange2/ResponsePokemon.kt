@@ -2,7 +2,7 @@ package com.example.smkcodingchallange2
 
 import com.google.gson.annotations.SerializedName
 
-data class Response(
+data class ResponsePokemon(
 
     @field:SerializedName("next")
     val next: String? = null,
@@ -25,3 +25,5 @@ data class ResultsItem(
     @field:SerializedName("url")
     val url: String? = null
 )
+
+

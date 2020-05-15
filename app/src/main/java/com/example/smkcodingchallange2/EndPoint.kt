@@ -10,5 +10,5 @@ import retrofit2.http.POST
 
 interface EndPoint {
     @GET("pokemon?limit=10")
-    fun doTarget(): Call<Response>
+    fun doTarget(): Call<ResponsePokemon>
 }
