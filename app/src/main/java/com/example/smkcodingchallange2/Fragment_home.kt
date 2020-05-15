@@ -1,5 +1,6 @@
 package com.example.smkcodingchallange2
 
+import android.app.Service
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,17 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_home.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Fragment_home.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Fragment_home : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,25 +32,26 @@ class Fragment_home : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initView()
+        getTransaksi()
     }
+    private fun getTransaksi() {
 
-    lateinit var list: ArrayList<pokemon.poke>
+        val PokemonModel = ServiceRequest.get().doTarget()
+        PokemonModel.enqueue(object : Callback<com.example.smkcodingchallange2.Response>{
+            override fun onFailure(call: Call<com.example.smkcodingchallange2.Response>, t: Throwable) {
+            }
 
-    private fun simulasi(){
-        list = ArrayList()
-        list.add(pokemon.poke("poke","200","Laki", "Kelabu"))
+            override fun onResponse(call: Call<com.example.smkcodingchallange2.Response>, response: Response<com.example.smkcodingchallange2.Response>) {
+                tampilGithubUser(response.body()!!.results!!)
+            }
+
+        })
     }
-
-    private fun tampil(){
-        rvpoked.layoutManager=LinearLayoutManager(activity)
-        rvpoked.adapter=pokeadapter(activity!!, list)
+    private fun tampilGithubUser(githubUsers: List<ResultsItem>) {
+        rvpoked.layoutManager = LinearLayoutManager(activity)
+        rvpoked.adapter = pokeadapter(activity, githubUsers) {
+        }
     }
-
-    private fun initView(){
-        simulasi()
-        tampil()
-    }
-
-
 }
+
+

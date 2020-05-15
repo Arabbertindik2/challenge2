@@ -7,28 +7,37 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.pokedex_item.*
+import kotlinx.android.synthetic.main.pokedex_item.view.*
 import java.util.ArrayList
 
-class pokeadapter(private val context: Context, private val items: ArrayList<pokemon.poke>) :
+class pokeadapter(private val context: Context, private val items:
+List<ResultsItem>, private val listener: (ResultsItem)-> Unit) :
     RecyclerView.Adapter<pokeadapter.ViewHolder>() {
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder (
-        LayoutInflater.from(context).inflate(R.layout.pokedex_item, parent, false)
-    )
-
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        ViewHolder(context, LayoutInflater.from(context).inflate(
+            R.layout.pokedex_item,
+            parent, false))
     override fun getItemCount(): Int {
         return items.size
     }
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bindItem(items.get(position), listener)
+    }
+    class ViewHolder(val context: Context, override val containerView : View) :
+        RecyclerView.ViewHolder(containerView), LayoutContainer {
+        fun bindItem(item: ResultsItem, listener: (ResultsItem) -> Unit) {
+            itemView.txtpokemonname.text = item.name
+//            val id = item.url!!.substring(item.url!!.length - 2)
+            val url_lenght = item.url!!.length
+            if (url_lenght == 36){
+                val id = item.url!!.substring(item.url!!.length - 2)
+                itemView.pokemon_id.text = id.substring(0,id.length-1)
+            }
+            if(url_lenght == 37){
+                val id = item.url!!.substring(item.url!!.length - 3)
+                itemView.pokemon_id.text = id.substring(0,id.length-1)
+            }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int)
-    { holder.bindItem(items.get(position)) }
-
-    class ViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView),
-        LayoutContainer {
-        fun bindItem(item: pokemon.poke){
-            txthp.text = item.nama
-            txtpokemonname.text = item.hp
         }
     }
-
 }
