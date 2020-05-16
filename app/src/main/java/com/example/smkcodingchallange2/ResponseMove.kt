@@ -14,7 +14,7 @@ data class ResponseMove(
     val count: Int? = null,
 
     @field:SerializedName("results")
-    val results: ArrayList<ResultsItem>? = null
+    val results: ArrayList<ResultItem2>? = null
 )
 
 data class ResultItem2(

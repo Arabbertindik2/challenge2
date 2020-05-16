@@ -29,6 +29,7 @@ class ProfilFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        getMove()
     }
 
     private fun getMove() {
@@ -44,9 +45,9 @@ class ProfilFragment : Fragment() {
 
         })
     }
-    private fun tampilGithubUser(githubUsers: List<ResultsItem>) {
+    private fun tampilGithubUser(githubUsers: List<ResultItem2>) {
         rvmoved.layoutManager = LinearLayoutManager(activity)
-        rvmoved.adapter = PokemonAdapter(activity!!, githubUsers) {
+        rvmoved.adapter = MovedAdapter(activity!!, githubUsers) {
         }
     }
 }

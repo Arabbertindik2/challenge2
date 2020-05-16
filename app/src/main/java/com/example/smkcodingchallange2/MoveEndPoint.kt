@@ -4,6 +4,6 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface MoveEndPoint {
-    @GET("ability")
+    @GET("move")
     fun doTarget2(): Call<ResponseMove>
 }
