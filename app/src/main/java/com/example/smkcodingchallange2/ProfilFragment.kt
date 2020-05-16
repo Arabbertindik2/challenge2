@@ -5,6 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_profil.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class ProfilFragment : Fragment() {
@@ -25,16 +31,22 @@ class ProfilFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
-//    companion object {
-//
-//        // TODO: Rename and change types and number of parameters
-//        @JvmStatic
-//        fun newInstance(param1: String, param2: String) =
-//            ProfilFragment().apply {
-//                arguments = Bundle().apply {
-//                    putString(ARG_PARAM1, param1)
-//                    putString(ARG_PARAM2, param2)
-//                }
-//            }
-//    }
+    private fun getMove() {
+
+        val MoveModel = MoveRequest.getmove().doTarget2()
+        MoveModel.enqueue(object : Callback<ResponseMove> {
+            override fun onFailure(call: Call<ResponseMove>, t: Throwable) {
+            }
+
+            override fun onResponse(call: Call<ResponseMove>, response: Response<ResponseMove>) {
+                tampilGithubUser(response.body()!!.results!!)
+            }
+
+        })
+    }
+    private fun tampilGithubUser(githubUsers: List<ResultsItem>) {
+        rvmoved.layoutManager = LinearLayoutManager(activity)
+        rvmoved.adapter = PokemonAdapter(activity!!, githubUsers) {
+        }
+    }
 }

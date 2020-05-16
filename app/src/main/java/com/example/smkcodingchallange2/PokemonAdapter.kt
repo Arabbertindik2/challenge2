@@ -9,11 +9,10 @@ import com.bumptech.glide.Glide
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.pokedex_item.*
 import kotlinx.android.synthetic.main.pokedex_item.view.*
-import java.util.ArrayList
 
-class pokeadapter(private val context: Context, private val items:
+class PokemonAdapter(private val context: Context, private val items:
 List<ResultsItem>, private val listener: (ResultsItem)-> Unit) :
-    RecyclerView.Adapter<pokeadapter.ViewHolder>() {
+    RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(context, LayoutInflater.from(context).inflate(
             R.layout.pokedex_item,

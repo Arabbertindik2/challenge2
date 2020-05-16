@@ -1,6 +1,5 @@
 package com.example.smkcodingchallange2
 
-import android.app.Service
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -32,9 +31,9 @@ class Fragment_home : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getTransaksi()
+        getPokemon()
     }
-    private fun getTransaksi() {
+    private fun getPokemon() {
 
         val PokemonModel = ServiceRequest.get().doTarget()
         PokemonModel.enqueue(object : Callback<ResponsePokemon>{
@@ -49,7 +48,7 @@ class Fragment_home : Fragment() {
     }
     private fun tampilGithubUser(githubUsers: List<ResultsItem>) {
         rvpoked.layoutManager = LinearLayoutManager(activity)
-        rvpoked.adapter = pokeadapter(activity!!, githubUsers) {
+        rvpoked.adapter = PokemonAdapter(activity!!, githubUsers) {
         }
     }
 }
