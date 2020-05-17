@@ -30,18 +30,17 @@ List<ResultItem2>, private val listener: (ResultItem2)-> Unit) :
         RecyclerView.ViewHolder(containerView), LayoutContainer {
         fun bindItem(item: ResultItem2, listener: (ResultItem2) -> Unit) {
             itemView.txtpokemonmove.text = item.name
-//            val id = item.url!!.substring(item.url!!.length - 2)
-            val url_lenght = item.url!!.length
-            if (url_lenght == 36){
-                val id = item.url!!.substring(item.url!!.length - 2)
-                itemView.move_id.text = id.substring(0,id.length-1)
-            }
-            if(url_lenght == 37){
-                val id = item.url!!.substring(item.url!!.length - 3)
-                itemView.move_id.text = id.substring(0,id.length-1)
-            }
-
-
+            val sub = item.url!!.substring(31, item.url.length-1)
+            itemView.move_id.text = sub
+//            val url_lenght = item.url!!.length
+//            if (url_lenght == 33){
+//                val id = item.url!!.substring(item.url!!.length - 2)
+//                itemView.move_id.text = id.substring(0,id.length-1)
+//            }
+//            if(url_lenght == 34){
+//                val id = item.url!!.substring(item.url!!.length - 3)
+//                itemView.move_id.text = id.substring(0,id.length-1)
+//            }
         }
     }
 

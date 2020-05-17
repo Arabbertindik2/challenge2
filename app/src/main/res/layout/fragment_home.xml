@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Fragment_home">
+    tools:context=".Fragment_home"
+    android:id="@+id/itemdetail">
 
     <TextView
         android:layout_width="match_parent"
