@@ -14,10 +14,10 @@
         android:textSize="18sp"
         android:gravity="center_horizontal"
         android:layout_margin="16dp"
-        android:text="Move"/>
+        android:text="Type"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvmoved"
+        android:id="@+id/rvtype"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:layout_margin="16dp"/>

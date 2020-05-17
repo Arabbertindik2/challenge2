@@ -1,6 +1,7 @@
 package com.example.smkcodingchallange2
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,15 +33,11 @@ List<ResultItem2>, private val listener: (ResultItem2)-> Unit) :
             itemView.txtpokemonmove.text = item.name
             val sub = item.url!!.substring(31, item.url.length-1)
             itemView.move_id.text = sub
-//            val url_lenght = item.url!!.length
-//            if (url_lenght == 33){
-//                val id = item.url!!.substring(item.url!!.length - 2)
-//                itemView.move_id.text = id.substring(0,id.length-1)
-//            }
-//            if(url_lenght == 34){
-//                val id = item.url!!.substring(item.url!!.length - 3)
-//                itemView.move_id.text = id.substring(0,id.length-1)
-//            }
+            itemView.idmoveadap.setOnClickListener {
+                val i = Intent(context, MoveDetailActivity::class.java)
+                i.putExtra("id", sub)
+                context.startActivity(i)
+            }
         }
     }
 

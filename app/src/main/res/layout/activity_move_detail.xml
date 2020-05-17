@@ -13,14 +13,8 @@
         android:layout_marginTop="10dp"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/ivcircle"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal" />
-
         <TextView
-            android:id="@+id/idnamapokemon"
+            android:id="@+id/idnamemove"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pokemon"
@@ -31,6 +25,60 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="30dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="Accuracy"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/idaccuracy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textSize="22sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="Power"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/idpower"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textSize="22sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="PP"
+                android:textSize="22sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="32"
+                android:textSize="22sp"
+                android:id="@+id/idpp"/>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,86 +89,14 @@
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:text="Type"
-                android:textSize="22sp" />
-
-            <TextView
-                android:id="@+id/idtype"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Posion"
-                android:textSize="22sp" />
-        </LinearLayout>
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="horizontal">-->
-
-<!--            <TextView-->
-<!--                android:layout_width="180dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Species"-->
-<!--                android:textSize="22sp" />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/idspecies"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Posion"-->
-<!--                android:textSize="22sp" />-->
-<!--        </LinearLayout>-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:text="Height"
                 android:textSize="22sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Posion"
+                android:text="Normal"
                 android:textSize="22sp"
-                android:id="@+id/idheight"/>
+                android:id="@+id/idtypemove"/>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:text="Weight"
-                android:textSize="22sp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Posion"
-                android:textSize="22sp"
-                android:id="@+id/idweight"/>
-        </LinearLayout>
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="horizontal">-->
-
-<!--            <TextView-->
-<!--                android:layout_width="180dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Ability"-->
-<!--                android:textSize="22sp"/>-->
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Posion"-->
-<!--                android:textSize="22sp"-->
-<!--                android:id="@+id/idability"/>-->
-<!--        </LinearLayout>-->
 
     </LinearLayout>
 

@@ -8,8 +8,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    val menuTeks = arrayOf("Teman", "profil")
-    val manuIcon = arrayOf(R.drawable.ic_house, R.drawable.ic_information)
+    val menuTeks = arrayOf("Pokemon", "Moves", "Type")
+    val manuIcon = arrayOf(R.drawable.ic_pokeball, R.drawable.ic_pokemon_go,R.drawable.ic_information)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
